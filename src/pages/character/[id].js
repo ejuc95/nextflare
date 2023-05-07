@@ -11,10 +11,19 @@ export default function Character ({ data }) {
 
 export async function getServerSideProps (context) {
   const { id = 1 } = context.params
-  const data = await api.getOne(id)
-  return {
-    props: {
-      data
+  try {
+    const data = await api.getOne(id)
+    return {
+      props: {
+        data
+      }
+    }
+  } catch (error) {
+    console.error('Ocurrió un error al obtener los datos:', error)
+    return {
+      props: {
+        data: null
+      }
     }
   }
 }

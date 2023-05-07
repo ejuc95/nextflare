@@ -49,11 +49,20 @@ export default function Home ({ data }) {
 }
 
 export async function getServerSideProps (context) {
-  const params = context.query
-  const data = await api.getAll(params)
-  return {
-    props: {
-      data
+  try {
+    const params = context.query
+    const data = await api.getAll(params)
+    return {
+      props: {
+        data
+      }
+    }
+  } catch (error) {
+    console.error('Ocurrió un error al obtener los datos:', error)
+    return {
+      props: {
+        data: null
+      }
     }
   }
 }
