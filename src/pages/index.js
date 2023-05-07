@@ -30,7 +30,7 @@ export default function Home ({ data }) {
   return (
     <div className='p-4 w-full flex flex-col justify-start gap-4'>
       <div className='w-full flex justify-center items-center'>
-        <Search onChange={search} />
+        <Search onChange={search} defaultValue={queries?.name || ''} />
       </div>
       <div className='w-full flex justify-center items-center'>
         <PageButtons
@@ -49,20 +49,11 @@ export default function Home ({ data }) {
 }
 
 export async function getServerSideProps (context) {
-  try {
-    const params = context.query
-    const data = await api.getAll(params)
-    return {
-      props: {
-        data
-      }
-    }
-  } catch (error) {
-    console.error('Ocurrió un error al obtener los datos:', error)
-    return {
-      props: {
-        data: null
-      }
+  const params = context.query
+  const data = await api.getAll(params)
+  return {
+    props: {
+      data
     }
   }
 }
