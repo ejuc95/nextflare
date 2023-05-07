@@ -1,17 +1,15 @@
-import axios from 'axios'
-
 const baseUrl = 'https://rickandmortyapi.com/api/character'
 
 const getAll = async (params) => {
-  const { data } = await axios.get(baseUrl, {
-    params
-  })
-
+  const url = new URLSearchParams(params)
+  const res = await fetch(`${baseUrl}?${url.toString()}`)
+  const data = await res.json()
   return data
 }
 
 const getOne = async (id) => {
-  const { data } = await axios.get(`${baseUrl}/${id}`)
+  const res = await fetch(`${baseUrl}/${id}`)
+  const data = await res.json()
   return data
 }
 
