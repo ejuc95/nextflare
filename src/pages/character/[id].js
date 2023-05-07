@@ -2,6 +2,8 @@ import Hero from '@/components/Hero'
 import api from '@/services/api'
 import React from 'react'
 
+export const config = { runtime: 'experimental-edge' }
+
 export default function Character ({ data }) {
   return (
     <div>
