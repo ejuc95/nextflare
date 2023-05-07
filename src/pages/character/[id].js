@@ -3,7 +3,7 @@ import api from '@/services/api'
 import React from 'react'
 
 export const config = {
-  runtime: 'edge'
+  runtime: 'experimental-edge'
 }
 
 export default function Character ({ data }) {

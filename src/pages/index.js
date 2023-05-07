@@ -6,7 +6,7 @@ import api from '@/services/api'
 import { useRouter } from 'next/router'
 
 export const config = {
-  runtime: 'edge'
+  runtime: 'experimental-edge'
 }
 
 export default function Home ({ data }) {
