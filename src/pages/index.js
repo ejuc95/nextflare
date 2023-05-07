@@ -5,7 +5,7 @@ import Search from '@/components/Search'
 import api from '@/services/api'
 import { useRouter } from 'next/router'
 
-export const config = { runtime: 'experimental-edge' }
+export const config = { runtime: 'edge' }
 
 export default function Home ({ data }) {
   const router = useRouter()
